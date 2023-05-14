@@ -16,7 +16,7 @@
 
 @file:JvmName("WorkerUtils")
 
-package com.example.background.workers
+package com.roynaldi19.gd1_06background.workers
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -32,14 +32,14 @@ import androidx.renderscript.Allocation
 import androidx.renderscript.Element
 import androidx.renderscript.RenderScript
 import androidx.renderscript.ScriptIntrinsicBlur
-import com.example.background.CHANNEL_ID
-import com.example.background.DELAY_TIME_MILLIS
-import com.example.background.NOTIFICATION_ID
-import com.example.background.NOTIFICATION_TITLE
-import com.example.background.OUTPUT_PATH
-import com.example.background.R
-import com.example.background.VERBOSE_NOTIFICATION_CHANNEL_DESCRIPTION
-import com.example.background.VERBOSE_NOTIFICATION_CHANNEL_NAME
+import com.roynaldi19.gd1_06background.CHANNEL_ID
+import com.roynaldi19.gd1_06background.DELAY_TIME_MILLIS
+import com.roynaldi19.gd1_06background.NOTIFICATION_ID
+import com.roynaldi19.gd1_06background.NOTIFICATION_TITLE
+import com.roynaldi19.gd1_06background.OUTPUT_PATH
+import com.roynaldi19.gd1_06background.R
+import com.roynaldi19.gd1_06background.VERBOSE_NOTIFICATION_CHANNEL_DESCRIPTION
+import com.roynaldi19.gd1_06background.VERBOSE_NOTIFICATION_CHANNEL_NAME
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream

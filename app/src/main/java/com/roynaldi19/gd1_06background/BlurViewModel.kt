@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.background
+package com.roynaldi19.gd1_06background
 
 import android.app.Application
 import android.content.ContentResolver

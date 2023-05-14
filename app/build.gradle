@@ -21,7 +21,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion versions.compileSdk
     defaultConfig {
-        applicationId "com.example.background"
+        applicationId "com.roynaldi19.gd1_06background"
         renderscriptTargetApi 11
         renderscriptSupportModeEnabled true
         vectorDrawables {

@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.example.background
+package com.roynaldi19.gd1_06background
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.background.databinding.ActivityBlurBinding
+import com.roynaldi19.gd1_06background.databinding.ActivityBlurBinding
 
 class BlurActivity : AppCompatActivity() {
 
