@@ -16,19 +16,19 @@
 
 package com.roynaldi19.gd1_06background
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.work.WorkInfo
 import com.roynaldi19.gd1_06background.databinding.ActivityBlurBinding
+
 
 class BlurActivity : AppCompatActivity() {
 
-    private val viewModel: BlurViewModel by viewModels {
-        BlurViewModel.BlurViewModelFactory(
-            application
-        )
-    }
+    private val viewModel: BlurViewModel by viewModels { BlurViewModelFactory(application) }
     private lateinit var binding: ActivityBlurBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,46 @@ class BlurActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.goButton.setOnClickListener { viewModel.applyBlur(blurLevel) }
+
+        binding.seeFileButton.setOnClickListener {
+            viewModel.outputUri?.let { currentUri ->
+                val actionView = Intent(Intent.ACTION_VIEW, currentUri)
+                actionView.resolveActivity(packageManager)?.run {
+                    startActivity(actionView)
+                }
+            }
+        }
+
+        binding.cancelButton.setOnClickListener { viewModel.cancelWork()}
+
+        viewModel.outputWorkInfos.observe(this, workInfosObserver())
     }
+
+    private fun workInfosObserver(): Observer<List<WorkInfo>> {
+        return Observer { listOfWorkInfo ->
+
+            if (listOfWorkInfo.isNullOrEmpty()) {
+                return@Observer
+            }
+
+            val workInfo = listOfWorkInfo[0]
+
+            if (workInfo.state.isFinished) {
+                showWorkFinished()
+
+                val outputImageUri = workInfo.outputData.getString(KEY_IMAGE_URI)
+
+                if (!outputImageUri.isNullOrEmpty()) {
+                    viewModel.setOutputUri(outputImageUri)
+                    binding.seeFileButton.visibility = View.VISIBLE
+                }
+            } else {
+                showWorkInProgress()
+            }
+        }
+    }
+
+
 
     private fun showWorkInProgress() {
         with(binding) {
