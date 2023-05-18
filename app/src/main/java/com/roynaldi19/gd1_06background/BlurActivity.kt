@@ -39,9 +39,6 @@ class BlurActivity : AppCompatActivity() {
         binding.goButton.setOnClickListener { viewModel.applyBlur(blurLevel) }
     }
 
-    /**
-     * Shows and hides views for when the Activity is processing an image
-     */
     private fun showWorkInProgress() {
         with(binding) {
             progressBar.visibility = View.VISIBLE
@@ -51,9 +48,6 @@ class BlurActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Shows and hides views for when the Activity is done processing an image
-     */
     private fun showWorkFinished() {
         with(binding) {
             progressBar.visibility = View.GONE

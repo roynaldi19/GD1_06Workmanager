@@ -32,10 +32,6 @@ class BlurViewModel(application: Application) : ViewModel() {
     init {
         imageUri = getImageUri(application.applicationContext)
     }
-    /**
-     * Create the WorkRequest to apply the blur and save the resulting image
-     * @param blurLevel The amount to blur the image
-     */
     internal fun applyBlur(blurLevel: Int) {}
 
     private fun uriOrNull(uriString: String?): Uri? {
