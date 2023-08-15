@@ -16,7 +16,7 @@
 
 @file:JvmName("Constants")
 
-package com.example.background
+package com.roynaldi19.background
 
 // Notification Channel constants
 
